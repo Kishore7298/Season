@@ -16,15 +16,14 @@ class App extends React.Component {
         )
     }
 
-    render(){
-        
-        return (
-            <div>
-                Lattitude: {this.state.lat}
-                <br></br>
-                Error: {this.state.err}
-            </div>
-        )
+    render(){               
+        if(this.state.lat && !this.state.err){
+             return <div>Lattitude:{this.state.lat}</div>
+         }
+         if(!this.state.lat && this.state.err){
+             return <div>Error:{this.state.err}</div>
+         }
+           return <div>Loading!...</div>        
     }
 }
 
