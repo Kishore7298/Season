@@ -15,7 +15,13 @@ class App extends React.Component {
             }
         )
     }
+    componentDidMount(){
+        console.log("Component got rendered!");
+    }
 
+    componentDidUpdate(){
+        console.log("Component got rerendered!");
+    }
     render(){               
         if(this.state.lat && !this.state.err){
              return <div>Lattitude:{this.state.lat}</div>
