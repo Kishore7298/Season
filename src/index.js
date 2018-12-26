@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 class App extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {lat:null,err:''};   
-        //In constructor only initialization stuff should be done.     
-    }
+    //An alternative way of initializing the state.
+    state = {lat:null,err:''};
     componentDidMount(){
         //Data loading stuff which needs to be rendered once should be written here
         window.navigator.geolocation.getCurrentPosition(
