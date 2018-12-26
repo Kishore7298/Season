@@ -4,23 +4,15 @@ import ReactDOM from 'react-dom';
 class App extends React.Component {
     constructor(props){
         super(props);
-        this.state = {lat:null,err:''};
-
-        window.navigator.geolocation.getCurrentPosition(
-            (position)=>{
-                this.setState({lat:position.coords.latitude})
-            },
-            (err)=>{
-                this.setState({err:err.message})
-            }
-        )
+        this.state = {lat:null,err:''};   
+        //In constructor only initialization stuff should be done.     
     }
     componentDidMount(){
-        console.log("Component got rendered!");
-    }
-
-    componentDidUpdate(){
-        console.log("Component got rerendered!");
+        //Data loading stuff which needs to be rendered once should be written here
+        window.navigator.geolocation.getCurrentPosition(
+            (position)=>this.setState({lat:position.coords.latitude}),
+            (err)=> this.setState({err:err.message})           
+        )
     }
     render(){               
         if(this.state.lat && !this.state.err){
