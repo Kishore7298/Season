@@ -13,14 +13,19 @@ class App extends React.Component {
             (err)=> this.setState({err:err.message})           
         )
     }
-    render(){               
+    renderBody(){
         if(this.state.lat && !this.state.err){
-             return <SeasonDisplay  lat={this.state.lat}/>
-         }
-         if(!this.state.lat && this.state.err){
-             return <div>Error:{this.state.err}</div>
-         }
-           return <Spinner />        
+            return <SeasonDisplay  lat={this.state.lat}/>
+        }
+        if(!this.state.lat && this.state.err){
+            return <div>Error:{this.state.err}</div>
+        }
+          return <Spinner />    
+    }
+    render(){               
+        return (
+            <div className="border red">{this.renderBody()}</div>
+        )
     }
 }
 
